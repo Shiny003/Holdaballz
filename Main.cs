@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +10,7 @@ using Utilla;
 using System.IO;
 using System.Diagnostics;
 using BepInEx.Logging;
+using GorillaLocomotion.Climbing;
 
 namespace Holdaballz
 {
@@ -26,6 +27,7 @@ namespace Holdaballz
             BallObj.GetComponent<Renderer>().material.shader = Shader.Find("GorillaTag/UberShader");
             BallObj.AddComponent<Rigidbody>();
             BallObj.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
+            BallObj.AddComponent<GorillaVelocityEstimator>();
             BallObj.layer = 8;
             BallObj.name = "Ball";
             BallObj.transform.position = GorillaLocomotion.Player.Instance.rightControllerTransform.position;
