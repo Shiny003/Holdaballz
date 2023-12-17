@@ -1,4 +1,4 @@
-﻿namespace Holdaballz
+namespace Holdaballz
 {
     class PluginInfo
     {
