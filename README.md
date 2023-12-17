@@ -1,7 +1,7 @@
 # Holdaballz
 A modification for Gorilla Tag. Adds a small ball that spawns in stump, grab it by using grip and while touching the ball.
 
-![Installation GIF](https://github.com/ShinyGorilla/Holdaballz/blob/main/Marketing/Show)
+![Installation GIF](https://github.com/ShinyGorilla/Holdaballz/blob/main/Marketing/Show)](https://github.com/ShinyGorilla/Holdaballz/blob/main/Marketing/ezgif.com-video-to-gif-converted.gif)
 
 ## Bugs and issues
 If you encounter any bugs or issues while using Holdaballz, please report them on the mod's GitHub page. A Discord server is coming soon!
