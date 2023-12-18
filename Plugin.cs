@@ -31,7 +31,10 @@ namespace Holdaballz
 
         void OnEnable()
         {
-            Main.CreateBall();
+            if (inRoom)
+            {
+                Main.CreateBall();
+            }
             HarmonyPatches.ApplyHarmonyPatches();
         }
 
@@ -43,13 +46,13 @@ namespace Holdaballz
 
         void OnGameInitialized(object sender, EventArgs e)
         {
-            Main.CreateBall();
+            
         }
 
         public bool ThrowPhys;
         void Update()
         {
-            if (Main.BallObj != null)
+            if (Main.BallObj != null && inRoom)
             {
                 // Too lazy to figure out OnTrigger crap
 
@@ -83,10 +86,9 @@ namespace Holdaballz
                     HandGrabbing = "none";
                 }
 
-                if (GorillaLocomotion.Player.Instance.bodyCollider.transform.position.Distance(Main.BallObj.transform.position) < 10f) // Far from player detector
+                if (GorillaLocomotion.Player.Instance.bodyCollider.transform.position.Distance(Main.BallObj.transform.position) > 10f) // Far from player detector
                 {
                     Main.ResetBall();
-                    Debug.Log("Ball reset");
                 }
             }
         }
@@ -95,12 +97,14 @@ namespace Holdaballz
         public void OnJoin(string gamemode)
         {
             inRoom = true;
+            Main.CreateBall();
         }
 
         [ModdedGamemodeLeave]
         public void OnLeave(string gamemode)
         {
             inRoom = false;
+            Main.DestroyBall();
         }
     }
 }
